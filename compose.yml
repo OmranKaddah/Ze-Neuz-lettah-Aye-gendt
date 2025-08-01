@@ -1,0 +1,28 @@
+
+services:
+  newsletter-agent:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: simple-newsletter-agent
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./output:/app/output  # Fixed: was mapping to src
+    environment:
+      - PYTHONPATH=/app/src
+      - PYTHONUNBUFFERED=1
+    restart: "no"
+    networks:
+      - newsletter-net
+
+networks:
+  newsletter-net:
+    driver: bridge
+
+volumes:
+  data:
+  logs:
+  output:

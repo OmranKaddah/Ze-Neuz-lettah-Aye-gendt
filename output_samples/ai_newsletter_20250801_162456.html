@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent News: Your weekly dose of AI Agent shenanigans</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+        
+        .header .date {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .content {
+            padding: 2rem;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .section-title::before {
+            content: "📚";
+            font-size: 1.5rem;
+        }
+        
+        .section-title.ai-items::before {
+            content: "🚀";
+        }
+        
+        .item {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .item-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+        
+        .item-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            background: #e9ecef;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #495057;
+        }
+        
+        .category {
+            background: #667eea;
+            color: white;
+        }
+        
+        .item-summary {
+            color: #555;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .item-findings {
+            background: #e8f4f8;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+        
+        .findings-label {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .item-link {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border: 2px solid #667eea;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .item-link:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .stats {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .stat-item {
+            background: rgba(255,255,255,0.2);
+            padding: 1rem;
+            border-radius: 6px;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .footer p {
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 1rem;
+            }
+            
+            .item {
+                padding: 1rem;
+            }
+            
+            .item-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Agent News: Your weekly dose of AI Agent shenanigans</h1>
+            <div class="subtitle">AWS is playing Agent, Docker's all-in, and OpenAI's letting ChatGPT off the leash! Plus, underwater robots are getting smarter (thanks, AI!).</div>
+            <div class="date">August 01, 2025</div>
+        </div>
+        
+        <div class="content">
+            <div class="stats">
+                <h3>Newsletter Summary</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">Research Papers</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">AI Updates</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">9</span>
+                        <span class="stat-label">Total Items</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Latest Research Papers</h2>
+
+                <div class="item">
+                    <div class="item-title">Phi-Ground Tech Report: Advancing Perception in GUI Grounding</div>
+                    <div class="item-meta">
+                        <span class="meta-item category">Research Paper</span>
+                        <span class="meta-item">📅 July 31, 2025</span>
+                    </div>
+                    <div class="item-summary">This paper conducts an empirical study on the training of grounding models for Computer Use Agents (CUAs), and develops the Phi-Ground model family.</div>
+                    
+                <div class="item-findings">
+                    <div class="findings-label">Key Findings:</div>
+                    Phi-Ground model family achieves state-of-the-art performance across all five grounding benchmarks for models under $10B parameters in agent settings.
+                </div>
+                
+                    <a href="http://arxiv.org/pdf/2507.23779v1" class="item-link" target="_blank">Read Paper →</a>
+                </div>
+            
+                <div class="item">
+                    <div class="item-title">Distributed AI Agents for Cognitive Underwater Robot Autonomy</div>
+                    <div class="item-meta">
+                        <span class="meta-item category">Research Paper</span>
+                        <span class="meta-item">📅 July 31, 2025</span>
+                    </div>
+                    <div class="item-summary">This paper presents Underwater Robot Self-Organizing Autonomy (UROSA), a architecture leveraging distributed Large Language Model AI agents within the Robot Operating System 2 (ROS 2) framework.</div>
+                    
+                <div class="item-findings">
+                    <div class="findings-label">Key Findings:</div>
+                    UROSA demonstrates promising adaptability and reliability through realistic underwater missions, showing significant advantages over traditional rule-based architectures.
+                </div>
+                
+                    <a href="http://arxiv.org/pdf/2507.23735v1" class="item-link" target="_blank">Read Paper →</a>
+                </div>
+            
+                <div class="item">
+                    <div class="item-title">A survey of multi-agent geosimulation methodologies: from ABM to LLM</div>
+                    <div class="item-meta">
+                        <span class="meta-item category">Research Paper</span>
+                        <span class="meta-item">📅 July 31, 2025</span>
+                    </div>
+                    <div class="item-summary">This paper provides a comprehensive examination of agent-based approaches that codify the principles and linkages underlying multi-agent systems, simulations, and information systems. It confirms a framework intended as a formal specification for geosimulation platforms.</div>
+                    
+                <div class="item-findings">
+                    <div class="findings-label">Key Findings:</div>
+                    LLMs can be effectively incorporated as agent components if they follow a structured architecture specific to fundamental agent activities such as perception, memory, planning, and action.
+                </div>
+                
+                    <a href="http://arxiv.org/pdf/2507.23694v1" class="item-link" target="_blank">Read Paper →</a>
+                </div>
+                        </div>
+
+            <div class="section">
+                <h2 class="section-title ai-items">AI Tools & Updates</h2>
+
+                <div class="item">
+                    <div class="item-title">AWS launches AgentCore for AI agents - RCR Wireless News</div>
+                    <div class="item-meta">
+                        <span class="meta-item category">📰 News</span>
+                        <span class="meta-item">📅 July 17, 2025</span>
+                    </div>
+                    <div class="item-summary">AWS launches AgentCore for AI agents. Amazon Bedrock AgentCore enables customers to deploy and manage advanced AI agents securely and at scale.</div>
+                    <a href="https://www.rcrwireless.com/20250717/ai-infrastructure/aws-ai-agents" class="item-link" target="_blank">Learn More →</a>
+                </div>
+            
+                <div class="item">
+                    <div class="item-title">Cognida.ai Launches Codien - Dark Reading | Security</div>
+                    <div class="item-meta">
+                        <span class="meta-item category">📰 News</span>
+                        <span class="meta-item">📅 July 16, 2025</span>
+                    </div>
+                    <div class="item-summary">Cognida.ai Launches Codien: An AI Agent to Modernize Legacy Test Automation and Fast-Track Test Creation</div>
+                    <a href="https://www.darkreading.com/application-security/cognida-ai-launches-codien" class="item-link" target="_blank">Learn More →</a>
+                </div>
+            
+                <div class="item">
+                    <div class="item-title">How to Build Reliable AI Agents in 2025 - YouTube</div>
+                    <div class="item-meta">
+                        <span class="meta-item category">📖 Tutorial</span>
+                        <span class="meta-item">📅 July 25, 2025</span>
+                    </div>
+                    <div class="item-summary">This video covers the seven foundational building blocks you need to build reliable AI agents, cutting through the 99% of noise online to give you the clarity and production-ready approach that actually works in real systems.</div>
+                    <a href="https://www.youtube.com/watch?v=T1Lowy1mnEg" class="item-link" target="_blank">Learn More →</a>
+                </div>
+            
+                <div class="item">
+                    <div class="item-title">This Is How You Actually Build an AI Agent (Step-by-Step) - YouTube</div>
+                    <div class="item-meta">
+                        <span class="meta-item category">📖 Tutorial</span>
+                        <span class="meta-item">📅 July 07, 2025</span>
+                    </div>
+                    <div class="item-summary">I go step by step to show how I build an AI agent from scratch, even if you’ve never written code before. I explain what AI agents are in a simple way, how they work, and why they’re more powerful than regular chatbots or automations.</div>
+                    <a href="https://www.youtube.com/watch?v=CwvzZgKG_JI" class="item-link" target="_blank">Learn More →</a>
+                </div>
+            
+                <div class="item">
+                    <div class="item-title">Docker Unifies Container Development And AI Agent Workflows - Forbes</div>
+                    <div class="item-meta">
+                        <span class="meta-item category">📰 News</span>
+                        <span class="meta-item">📅 July 18, 2025</span>
+                    </div>
+                    <div class="item-summary">Docker, Inc. has positioned itself as the central orchestration platform for AI agent development, standardizing how developers build, deploy and manage intelligent applications through its enhanced compose framework and new infrastructure tools.</div>
+                    <a href="https://www.forbes.com/sites/janakirammsv/2025/07/18/docker-unifies-container-development-and-ai-agent-workflows/" class="item-link" target="_blank">Learn More →</a>
+                </div>
+            
+                <div class="item">
+                    <div class="item-title">OpenAI launches a general purpose agent in ChatGPT - TechCrunch</div>
+                    <div class="item-meta">
+                        <span class="meta-item category">📰 News</span>
+                        <span class="meta-item">📅 July 17, 2025</span>
+                    </div>
+                    <div class="item-summary">OpenAI is launching a new general purpose AI agent in ChatGPT which the company says can complete a wide variety of computer-based tasks on behalf of users.</div>
+                    <a href="https://techcrunch.com/2025/07/17/openai-launches-a-general-purpose-agent-in-chatgpt/" class="item-link" target="_blank">Learn More →</a>
+                </div>
+                        </div>
+
+        </div>
+        
+        <div class="footer">
+            <p><strong>AI Agents Newsletter</strong></p>
+            <p>Generated on August 01, 2025</p>
+            <p>Stay updated with the latest in AI and agent technologies!</p>
+        </div>
+    </div>
+</body>
+</html>
