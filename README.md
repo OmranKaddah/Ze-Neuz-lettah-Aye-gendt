@@ -96,6 +96,9 @@ pip install uv
 # Install dependencies
 uv sync
 
+# api keys
+source .evn
+
 # Run different workflows
 uv run python src/main.py       # run
 uv run python src/main.py test         # Test agent connections
