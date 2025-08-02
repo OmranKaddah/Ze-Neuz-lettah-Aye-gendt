@@ -1,0 +1,10 @@
+./.venv
+/_data
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+./logs
+output
+output_samples
