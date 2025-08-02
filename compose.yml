@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: simple-newsletter-agent
+    container_name: Ze-Neuz-lettah-Aye-gendt
     env_file:
       - .env
     volumes:
@@ -15,14 +15,3 @@ services:
       - PYTHONPATH=/app/src
       - PYTHONUNBUFFERED=1
     restart: "no"
-    networks:
-      - newsletter-net
-
-networks:
-  newsletter-net:
-    driver: bridge
-
-volumes:
-  data:
-  logs:
-  output:
