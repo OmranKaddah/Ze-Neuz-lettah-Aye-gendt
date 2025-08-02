@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from dataclasses import dataclass, field
 from typing import List, Union, Optional
 import asyncio
@@ -155,7 +157,6 @@ class CheckBothCompleted(BaseNode[NewsletterState]):
         else:
             logger.info("Waiting for other search to complete...")
             return WaitForCompletion(self.newsletter_header_agent)
-
 
 
 @dataclass
