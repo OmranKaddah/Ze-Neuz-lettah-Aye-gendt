@@ -5,8 +5,7 @@ WORKDIR /app
 
 # Install system dependencies
 RUN apt-get update \
-    && apt-get install -y nodejs npm curl git ca-certificates --no-install-recommends \
-    && npm install -g npx \
+    && apt-get install -y curl git ca-certificates --no-install-recommends \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -20,13 +19,6 @@ COPY . .
 
 # Install Python dependencies
 RUN uv sync
-
-# Install ArXiv MCP server properly
-RUN uv tool install arxiv-mcp-server
-
-# Set environment variables
-ENV PYTHONPATH=/app/src
-ENV PYTHONUNBUFFERED=1
 
 # Create directories
 RUN mkdir -p /app/data /app/logs /app/output

@@ -95,12 +95,8 @@ pip install uv
 
 # Install dependencies
 uv sync
-
 # api keys (export all environment )
 source .export_evn
-
-# install arxiv mcp server
-uv tool install arxiv-mcp-server 
 
 # Run different workflows
 uv run python src/main.py       # run
