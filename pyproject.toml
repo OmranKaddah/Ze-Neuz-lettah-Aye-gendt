@@ -9,5 +9,8 @@ dependencies = [
     "langgraph==0.6.0",
     "pydantic==2.11.7",
     "typing-extensions>=4.6.0",
-    "pydantic-ai-slim[tavily]"
+    "pydantic-ai-slim[tavily]",
+    "boto3>=1.30.0",
+    "arxiv-mcp-server",
+    "pydantic-ai-slim[bedrock]" 
 ]
