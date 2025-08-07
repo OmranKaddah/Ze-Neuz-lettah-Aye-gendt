@@ -282,14 +282,7 @@ class GenerateNewsletterContent(BaseNode[NewsletterState, None, str]):
                     title="AI Agent Newsletter",
                     headlines="Latest developments in AI and agent technologies"
                 )
-            
-            # Save the newsletter in multiple formats
-            html_file, text_file = save_newsletter(ctx.state)
-            
-            # Create a summary message
-            total_items = len(ctx.state.arxiv_papers) + len(ctx.state.ai_items)
-            summary = f"Newsletter generated successfully with {total_items} items. Files saved: {html_file.name}, {text_file.name}"
-            
+                        
             # Add notes about any failures
             if ctx.state.arxiv_failed or ctx.state.ai_items_failed:
                 failure_notes = []

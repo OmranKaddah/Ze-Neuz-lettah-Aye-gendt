@@ -10,6 +10,7 @@ from pydantic_ai.mcp import MCPServerStdio
 from pydantic_ai.common_tools.tavily import tavily_search_tool
 
 import os
+import sys
 
 logger = logging.getLogger(__name__)
 
@@ -42,26 +43,11 @@ class NewsletterHeader(BaseModel):
         description="Headlines for the newsletter - a catchy, funny and engaging summary of the latest developments in AI agents",
     )
 
-# twitter_server = MCPServerStdio(
-#     command = "npx",
-#     args = [
-#         "-y", 
-#         "@enescinar/twitter-mcp"
-#     ],
-#     env=
-#     {
-#         "API_KEY": "your_api_key_here",
-#         "API_SECRET_KEY": "your_api_secret_key_here",
-#         "ACCESS_TOKEN": "your_access_token_here",
-#         "ACCESS_TOKEN_SECRET": "your_access_token_secret_here"
-#     }
-# )
-def get_agents(model: str = 'gemini-2.0-flash') -> List[Agent]:
+def get_agents(model) -> List[Agent]:
     """
     Returns a list of configured agents for the newsletter workflow.
     """
 
-    # Try different ways to set up the ArXiv server depending on environment
     try:
         logger.info("Using uv tool run for ArXiv MCP server")
         arxiv_server = MCPServerStdio(
@@ -73,6 +59,7 @@ def get_agents(model: str = 'gemini-2.0-flash') -> List[Agent]:
             ],
             timeout=30  # Add timeout
         )
+
     except Exception as e:
         logger.warning(f"Failed to setup ArXiv MCP server: {e}")
         arxiv_server = None

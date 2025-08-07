@@ -7,10 +7,12 @@ from pathlib import Path
 from datetime import datetime
 from typing import List, Tuple
 import logging
+import boto3
+from os import environ
 
 logger = logging.getLogger(__name__)
 
-def save_newsletter(state) -> Tuple[Path, Path]:
+def save_newsletter(state, runs) -> Tuple[Path, Path]:
     """
     Generate and save newsletter in both HTML and text formats.
     
@@ -21,26 +23,48 @@ def save_newsletter(state) -> Tuple[Path, Path]:
         Tuple of (html_file_path, text_file_path)
     """
     # Ensure output directory exists
-    output_dir = Path("./output")
-    output_dir.mkdir(parents=True, exist_ok=True)
     
     # Generate timestamp for filenames
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    html_file = output_dir / f"ai_newsletter_{timestamp}.html"
-    text_file = output_dir / f"ai_newsletter_{timestamp}.txt"
-    
-    # Generate HTML content
-    html_content = generate_html_newsletter(state)
-    
-    # Generate text content
-    text_content = generate_text_newsletter(state)
-    
-    # Save files
-    with open(html_file, 'w', encoding='utf-8') as f:
-        f.write(html_content)
-    
-    with open(text_file, 'w', encoding='utf-8') as f:
-        f.write(text_content)
+    if runs == "on_aws":
+        html_file = Path(f"ai_newsletter_{timestamp}.html")
+        text_file = Path(f"ai_newsletter_{timestamp}.txt")
+        # Generate HTML content
+        html_content = generate_html_newsletter(state)
+        
+        # Generate text content
+        text_content = generate_text_newsletter(state)
+        
+        s3 = boto3.client('s3')
+        # upload HTML file to S3
+        bucket_name = environ.get('S3_BUCKET')        
+        s3.put_object(
+            Bucket=bucket_name,
+            Key=f'newsletters/{html_file.name}',
+            Body=html_content,
+            ContentType='text/html'
+        )
+    else:
+        output_dir = Path("./output")
+        output_dir.mkdir(parents=True, exist_ok=True)
+        
+        # Generate timestamp for filenames
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        html_file = output_dir / f"ai_newsletter_{timestamp}.html"
+        text_file = output_dir / f"ai_newsletter_{timestamp}.txt"
+        
+        # Generate HTML content
+        html_content = generate_html_newsletter(state)
+        
+        # Generate text content
+        text_content = generate_text_newsletter(state)
+        
+        # Save files
+        with open(html_file, 'w', encoding='utf-8') as f:
+            f.write(html_content)
+        
+        with open(text_file, 'w', encoding='utf-8') as f:
+            f.write(text_content)
     
     logger.info(f"Newsletter saved: {html_file.name} and {text_file.name}")
     

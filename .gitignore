@@ -5,7 +5,10 @@ build/
 dist/
 wheels/
 *.egg-info
-
+terraform.tfstate.backup
+.terraform.lock.hcl
 # Virtual environments
 .venv
 data
+.terraform
+terraform.tfstate
