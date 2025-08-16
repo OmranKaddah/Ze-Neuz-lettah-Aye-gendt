@@ -3,7 +3,7 @@ import boto3
 import os
 import urllib.parse
 import time
-import datetime
+from datetime import datetime
 
 # Initialize AWS clients
 s3_client = boto3.client('s3')
@@ -77,7 +77,7 @@ def send_to_subscribers(html_content, subscribers):
             try:
                 # Simple personalization - replace {{name}} if it exists
                 personalized_html = html_content.replace('{{name}}', subscriber['name'])
-                timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+                timestamp = datetime.now().strftime("%B %d, %Y")
                 ses_client.send_email(
                     Source=from_email,
                     Destination={'ToAddresses': [subscriber['email']]},

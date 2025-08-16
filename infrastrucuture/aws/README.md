@@ -81,6 +81,27 @@ terraform plan
 terraform apply
 ```
 
+### 4. Bedrock
+You need to enable access to the model that agents are going to use. 
+
+As of **August 2025**, **Amazon Bedrock model access must be enabled manually through the AWS Management Console**:
+- Navigate to **Amazon Bedrock → Model Access**.
+- Select the desired models (e.g., Claude 3.5 Sonnet).
+- Complete the subscription flow (including EULA acceptance).
+
+### ✅ **What you *can* do via CLI/API after access is granted**:
+- **List available models**:
+  ```bash
+  aws bedrock list-foundation-models --region us-east-1
+  ```
+
+### 🔧 **Action required**:
+1. **Log in to the AWS Console**.
+2. Go to **Bedrock → Model Access**.
+3. **Enable the models** you need (e.g., Claude 3.5 Sonnet).
+4. Wait ~5 minutes for propagation.
+
+
 ---
 
 ## 📥 Subscriber Data
